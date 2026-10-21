@@ -4,6 +4,7 @@
 
 ![Diagram: pixel snapping vs sub-pixel motion](media/explain-en.png)
 
+> **Open the demos in your browser:** [anim-test](https://deltras-go.github.io/firefox-translate-snap/anim-test.html) · [keytype](https://deltras-go.github.io/firefox-translate-snap/keytype.html) · [demo](https://deltras-go.github.io/firefox-translate-snap/demo.html)
 > Demos: [`anim-test.html`](./anim-test.html) — **the main one**, 8 squares with the same background moved in different ways (the jitter is most visible here); [`keytype.html`](./keytype.html) — the same background full-screen with angle buttons; [`demo.html`](./demo.html) — a ladder of 7 angles with small text. Each page is a single self-contained file.
 > Facts about Mozilla bugs were checked on 2026-10-21 against Bugzilla pages and commits; anything we are not sure about is marked "hypothesis".
 

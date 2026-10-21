@@ -4,6 +4,7 @@
 
 ![Схема: привязка к пикселям против субпиксельного движения](media/explain-ru.png)
 
+> **Открыть демо в браузере:** [anim-test](https://deltras-go.github.io/firefox-translate-snap/anim-test.html) · [keytype](https://deltras-go.github.io/firefox-translate-snap/keytype.html) · [demo](https://deltras-go.github.io/firefox-translate-snap/demo.html)
 > Демо: [`anim-test.html`](./anim-test.html) — **основное**, 8 квадратов с одним и тем же фоном и разными способами движения (именно здесь дрожь заметнее всего); [`keytype.html`](./keytype.html) — тот же фон на весь экран с кнопками угла; [`demo.html`](./demo.html) — лесенка из 7 углов с мелким текстом. Каждая страница — один самодостаточный файл.
 > Факты о багах Mozilla проверены 21.10.2026 по страницам Bugzilla и коммитам; места, где мы не уверены, помечены словом «гипотеза».
 
