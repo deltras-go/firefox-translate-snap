@@ -4,7 +4,7 @@
 
 ![Diagram: pixel snapping vs sub-pixel motion](media/explain-en.png)
 
-> Demos: [`keytype.html`](./keytype.html) — the real project background full-screen with angle buttons; [`demo.html`](./demo.html) — a ladder of 7 angles with small text. Each page is a single self-contained file.
+> Demos: [`anim-test.html`](./anim-test.html) — **the main one**, 8 squares with the same background moved in different ways (the jitter is most visible here); [`keytype.html`](./keytype.html) — the same background full-screen with angle buttons; [`demo.html`](./demo.html) — a ladder of 7 angles with small text. Each page is a single self-contained file.
 > Facts about Mozilla bugs were checked on 2026-10-21 against Bugzilla pages and commits; anything we are not sure about is marked "hypothesis".
 
 ## TL;DR
@@ -106,6 +106,6 @@ Item preview cards used to draw an animated SVG (SMIL, main thread). After movin
 
 ## Try it yourself
 
-The clearest example is [`keytype.html`](./keytype.html): the project's real background with 0° / 0.01° / 0.05° / 0.3° buttons. In Firefox at 0° the letter edges tremble and "click"; at 0.3° they glide. [`demo.html`](./demo.html) gives the ladder of 7 angles.
+The clearest example is [`anim-test.html`](./anim-test.html): 450×260 squares with the project's real background moved in different ways (translate, scale ×1.002, rotate 0.01° / 0.05° / 0.3°, no `will-change`, `background-position`, canvas). Open it in Firefox at 100% zoom and watch each square for 10–15 seconds. The same background full-screen with angle buttons is [`keytype.html`](./keytype.html); the ladder of 7 angles is [`demo.html`](./demo.html).
 
 If it reproduces for you, consider adding a minimal example and your Firefox version to [Bug 1461434](https://bugzilla.mozilla.org/show_bug.cgi?id=1461434): it has been open since 2018.
