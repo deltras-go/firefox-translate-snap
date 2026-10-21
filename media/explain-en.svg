@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" font-family="system-ui,Segoe UI,Arial,sans-serif">
+<rect width="1200" height="900" fill="#14161a"/>
+<text x="40" y="52" font-size="24" font-weight="700" fill="#e8eaed">Why slow translate "clicks" in Firefox and a small rotation fixes it</text>
+<text x="40" y="82" font-size="16" fill="#8b919b">Mechanism diagram (not a screen recording). The layer drifts at ≈ 8 px/s on each axis, like the keytype background.</text>
+<text x="40" y="116" font-size="19" font-weight="600" fill="#e8eaed">Plain translate (0°)</text>
+<rect x="40" y="130" width="540" height="290" rx="8" fill="#1d2026"/>
+<line x1="94" y1="378.0" x2="554" y2="378.0" stroke="#2b2f37" stroke-width="1"/>
+<text x="86" y="382.0" font-size="12" fill="#8b919b" text-anchor="end">0</text>
+<line x1="94" y1="349.5" x2="554" y2="349.5" stroke="#2b2f37" stroke-width="1"/>
+<text x="86" y="353.5" font-size="12" fill="#8b919b" text-anchor="end">1</text>
+<line x1="94" y1="321.0" x2="554" y2="321.0" stroke="#2b2f37" stroke-width="1"/>
+<text x="86" y="325.0" font-size="12" fill="#8b919b" text-anchor="end">2</text>
+<line x1="94" y1="292.5" x2="554" y2="292.5" stroke="#2b2f37" stroke-width="1"/>
+<text x="86" y="296.5" font-size="12" fill="#8b919b" text-anchor="end">3</text>
+<line x1="94" y1="264.0" x2="554" y2="264.0" stroke="#2b2f37" stroke-width="1"/>
+<text x="86" y="268.0" font-size="12" fill="#8b919b" text-anchor="end">4</text>
+<line x1="94" y1="235.5" x2="554" y2="235.5" stroke="#2b2f37" stroke-width="1"/>
+<text x="86" y="239.5" font-size="12" fill="#8b919b" text-anchor="end">5</text>
+<line x1="94" y1="207.0" x2="554" y2="207.0" stroke="#2b2f37" stroke-width="1"/>
+<text x="86" y="211.0" font-size="12" fill="#8b919b" text-anchor="end">6</text>
+<line x1="94" y1="178.5" x2="554" y2="178.5" stroke="#2b2f37" stroke-width="1"/>
+<text x="86" y="182.5" font-size="12" fill="#8b919b" text-anchor="end">7</text>
+<line x1="94" y1="150.0" x2="554" y2="150.0" stroke="#2b2f37" stroke-width="1"/>
+<text x="86" y="154.0" font-size="12" fill="#8b919b" text-anchor="end">8</text>
+<text x="94.0" y="398" font-size="12" fill="#8b919b" text-anchor="middle">0</text>
+<text x="209.0" y="398" font-size="12" fill="#8b919b" text-anchor="middle">0.25</text>
+<text x="324.0" y="398" font-size="12" fill="#8b919b" text-anchor="middle">0.5</text>
+<text x="439.0" y="398" font-size="12" fill="#8b919b" text-anchor="middle">0.75</text>
+<text x="554.0" y="398" font-size="12" fill="#8b919b" text-anchor="middle">1</text>
+<text x="324.0" y="418" font-size="13" fill="#8b919b" text-anchor="middle">time, s</text>
+<text x="56" y="264.0" font-size="13" fill="#8b919b" transform="rotate(-90 56 264.0)" text-anchor="middle">layer position, px</text>
+<line x1="94" y1="378.0" x2="540.2" y2="149.7" stroke="#6b7280" stroke-width="2" stroke-dasharray="6 5"/>
+<path d="M 94 378.0 H 121.8 V 349.5 H 177.5 V 321.0 H 233.2 V 292.5 H 288.9 V 264.0 H 344.6 V 235.5 H 400.3 V 207.0 H 456.0 V 178.5 H 511.7 V 150.0 H 540.2" fill="none" stroke="#ffb454" stroke-width="3"/>
+<text x="102" y="166" font-size="14" fill="#ffb454">what Firefox draws: whole pixels</text>
+<text x="384" y="304" font-size="13" fill="#ffb454">a click ≈ 8 times per second</text>
+<text x="550" y="370" font-size="13" fill="#6b7280" text-anchor="end">— — true position</text>
+<text x="620" y="116" font-size="19" font-weight="600" fill="#e8eaed">translate + rotate(0.05° or more)</text>
+<rect x="620" y="130" width="540" height="290" rx="8" fill="#1d2026"/>
+<line x1="674" y1="378.0" x2="1134" y2="378.0" stroke="#2b2f37" stroke-width="1"/>
+<text x="666" y="382.0" font-size="12" fill="#8b919b" text-anchor="end">0</text>
+<line x1="674" y1="349.5" x2="1134" y2="349.5" stroke="#2b2f37" stroke-width="1"/>
+<text x="666" y="353.5" font-size="12" fill="#8b919b" text-anchor="end">1</text>
+<line x1="674" y1="321.0" x2="1134" y2="321.0" stroke="#2b2f37" stroke-width="1"/>
+<text x="666" y="325.0" font-size="12" fill="#8b919b" text-anchor="end">2</text>
+<line x1="674" y1="292.5" x2="1134" y2="292.5" stroke="#2b2f37" stroke-width="1"/>
+<text x="666" y="296.5" font-size="12" fill="#8b919b" text-anchor="end">3</text>
+<line x1="674" y1="264.0" x2="1134" y2="264.0" stroke="#2b2f37" stroke-width="1"/>
+<text x="666" y="268.0" font-size="12" fill="#8b919b" text-anchor="end">4</text>
+<line x1="674" y1="235.5" x2="1134" y2="235.5" stroke="#2b2f37" stroke-width="1"/>
+<text x="666" y="239.5" font-size="12" fill="#8b919b" text-anchor="end">5</text>
+<line x1="674" y1="207.0" x2="1134" y2="207.0" stroke="#2b2f37" stroke-width="1"/>
+<text x="666" y="211.0" font-size="12" fill="#8b919b" text-anchor="end">6</text>
+<line x1="674" y1="178.5" x2="1134" y2="178.5" stroke="#2b2f37" stroke-width="1"/>
+<text x="666" y="182.5" font-size="12" fill="#8b919b" text-anchor="end">7</text>
+<line x1="674" y1="150.0" x2="1134" y2="150.0" stroke="#2b2f37" stroke-width="1"/>
+<text x="666" y="154.0" font-size="12" fill="#8b919b" text-anchor="end">8</text>
+<text x="674.0" y="398" font-size="12" fill="#8b919b" text-anchor="middle">0</text>
+<text x="789.0" y="398" font-size="12" fill="#8b919b" text-anchor="middle">0.25</text>
+<text x="904.0" y="398" font-size="12" fill="#8b919b" text-anchor="middle">0.5</text>
+<text x="1019.0" y="398" font-size="12" fill="#8b919b" text-anchor="middle">0.75</text>
+<text x="1134.0" y="398" font-size="12" fill="#8b919b" text-anchor="middle">1</text>
+<text x="904.0" y="418" font-size="13" fill="#8b919b" text-anchor="middle">time, s</text>
+<text x="636" y="264.0" font-size="13" fill="#8b919b" transform="rotate(-90 636 264.0)" text-anchor="middle">layer position, px</text>
+<line x1="674" y1="378.0" x2="1120.2" y2="149.7" stroke="#6b7280" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="674" y1="378.0" x2="1120.2" y2="149.7" stroke="#6cc4ff" stroke-width="3"/>
+<text x="682" y="166" font-size="14" fill="#6cc4ff">sub-pixel: position as is</text>
+<text x="1130" y="370" font-size="13" fill="#6b7280" text-anchor="end">— — true position</text>
+<text x="40" y="474" font-size="19" font-weight="600" fill="#e8eaed">What the eye sees: a glyph edge over three consecutive frames (zoomed)</text>
+<text x="40" y="506" font-size="14" fill="#ffb454">pixel snapping: stays, stays, jumps</text>
+<text x="40" y="536" font-size="12" fill="#8b919b">frame 1</text>
+<rect x="40" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="74" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="108" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="142" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="176" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="40" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="74" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="108" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="142" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="176" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="40" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="74" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="108" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="142" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="176" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<text x="225" y="536" font-size="12" fill="#8b919b">frame 2</text>
+<rect x="225" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="259" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="293" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="327" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="361" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="225" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="259" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="293" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="327" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="361" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="225" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="259" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="293" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="327" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="361" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<text x="410" y="536" font-size="12" fill="#8b919b">frame 3</text>
+<rect x="410" y="546" width="34" height="34" fill="rgb(30,30,38)" stroke="#14161a" stroke-width="2"/>
+<rect x="444" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="478" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="512" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="546" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="410" y="580" width="34" height="34" fill="rgb(30,30,38)" stroke="#14161a" stroke-width="2"/>
+<rect x="444" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="478" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="512" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="546" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="410" y="614" width="34" height="34" fill="rgb(30,30,38)" stroke="#14161a" stroke-width="2"/>
+<rect x="444" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="478" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="512" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="546" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<text x="620" y="506" font-size="14" fill="#6cc4ff">sub-pixel: the edge flows smoothly</text>
+<text x="620" y="536" font-size="12" fill="#8b919b">frame 1</text>
+<rect x="620" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="654" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="688" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="722" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="756" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="620" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="654" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="688" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="722" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="756" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="620" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="654" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="688" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="722" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="756" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<text x="805" y="536" font-size="12" fill="#8b919b">frame 2</text>
+<rect x="805" y="546" width="34" height="34" fill="rgb(156,156,164)" stroke="#14161a" stroke-width="2"/>
+<rect x="839" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="873" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="907" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="941" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="805" y="580" width="34" height="34" fill="rgb(156,156,164)" stroke="#14161a" stroke-width="2"/>
+<rect x="839" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="873" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="907" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="941" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="805" y="614" width="34" height="34" fill="rgb(156,156,164)" stroke="#14161a" stroke-width="2"/>
+<rect x="839" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="873" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="907" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="941" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<text x="990" y="536" font-size="12" fill="#8b919b">frame 3</text>
+<rect x="990" y="546" width="34" height="34" fill="rgb(72,72,80)" stroke="#14161a" stroke-width="2"/>
+<rect x="1024" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="1058" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="1092" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="1126" y="546" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="990" y="580" width="34" height="34" fill="rgb(72,72,80)" stroke="#14161a" stroke-width="2"/>
+<rect x="1024" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="1058" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="1092" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="1126" y="580" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="990" y="614" width="34" height="34" fill="rgb(72,72,80)" stroke="#14161a" stroke-width="2"/>
+<rect x="1024" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="1058" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="1092" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<rect x="1126" y="614" width="34" height="34" fill="rgb(240,240,248)" stroke="#14161a" stroke-width="2"/>
+<text x="40" y="690" font-size="19" font-weight="600" fill="#e8eaed">Where the boundary lies (our test in Firefox, one machine)</text>
+<line x1="90" y1="770" x2="1110" y2="770" stroke="#3a3f49" stroke-width="3"/>
+<line x1="303.6" y1="724" x2="303.6" y2="784" stroke="#c4a8ff" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="311.6" y="718" font-size="13" fill="#c4a8ff">≈ 0.014°: threshold if the "almost no rotation" check uses 1/4096 (hypothesis)</text>
+<circle cx="90.0" cy="770" r="9" fill="#ffb454"/>
+<text x="90.0" y="804" font-size="14" fill="#e8eaed" text-anchor="middle">0°</text>
+<text x="90.0" y="824" font-size="12" fill="#ffb454" text-anchor="middle">jitters</text>
+<circle cx="170.8" cy="770" r="9" fill="#ffb454"/>
+<text x="170.8" y="804" font-size="14" fill="#e8eaed" text-anchor="middle">0.002°</text>
+<text x="170.8" y="824" font-size="12" fill="#ffb454" text-anchor="middle">jitters</text>
+<circle cx="270.6" cy="770" r="9" fill="#ffb454"/>
+<text x="270.6" y="804" font-size="14" fill="#e8eaed" text-anchor="middle">0.01°</text>
+<text x="270.6" y="824" font-size="12" fill="#ffb454" text-anchor="middle">jitters</text>
+<circle cx="493.9" cy="770" r="9" fill="#6cc4ff"/>
+<text x="493.9" y="804" font-size="14" fill="#e8eaed" text-anchor="middle">0.05°</text>
+<text x="493.9" y="824" font-size="12" fill="#6cc4ff" text-anchor="middle">smooth</text>
+<circle cx="661.2" cy="770" r="9" fill="#6cc4ff"/>
+<text x="661.2" y="804" font-size="14" fill="#e8eaed" text-anchor="middle">0.1°</text>
+<text x="661.2" y="824" font-size="12" fill="#6cc4ff" text-anchor="middle">smooth</text>
+<circle cx="1079.4" cy="770" r="9" fill="#6cc4ff"/>
+<text x="1079.4" y="804" font-size="14" fill="#e8eaed" text-anchor="middle">0.3°</text>
+<text x="1079.4" y="824" font-size="12" fill="#6cc4ff" text-anchor="middle">smooth</text>
+<text x="1110" y="756" font-size="12" fill="#8b919b" text-anchor="end">rotate() angle (√ scale)
+</text>
+<text x="40" y="852" font-size="14" fill="#8b919b">X and Y snap on different frames → the image also twitches across its path</text>
+<text x="40" y="882" font-size="12" fill="#6b7280">Mozilla bugs: 1461434, 739176, 1435094 · WebRender code (ScaleOffset::from_transform) · our A/B tests</text>
+</svg>
