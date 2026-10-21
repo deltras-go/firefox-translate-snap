@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Firefox: медленный translate и поворот</title>
+<style>
+:root{--bg:#14161a;--fg:#e8eaed;--mut:#8b919b;--card:#1d2026;--acc:#7cc4ff}
+@media (prefers-color-scheme:light){:root{--bg:#f4f5f7;--fg:#1b1d21;--mut:#5d6470;--card:#fff;--acc:#0a6cc4}}
+*{box-sizing:border-box}
+body{margin:0;padding:24px 16px 48px;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1000px;margin:0 auto}
+h1{font-size:22px;margin:0 0 6px}
+p{margin:0 0 12px;color:var(--mut)}
+.bar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:16px 0}
+label{display:flex;gap:8px;align-items:center;color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.c{background:var(--card);border-radius:10px;overflow:hidden}
+.v{position:relative;height:140px;overflow:hidden;background:#0d3b66}
+.v i{position:absolute;left:calc(var(--m) * -1);top:calc(var(--m) * -1);width:calc(100% + var(--t) + var(--m) * 2);height:calc(100% + var(--t) + var(--m) * 2);
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Ctext x='3' y='24' font-family='monospace' font-weight='700' font-size='13' fill='%23ffffff' fill-opacity='.55'%3Ekey%3C/text%3E%3Ctext x='27' y='52' font-family='monospace' font-weight='700' font-size='13' fill='%23ffffff' fill-opacity='.55'%3Etype%3C/text%3E%3C/svg%3E") 0 0/60px 60px;
+  --t:60px;--m:12px;will-change:transform;animation:d 7.5s linear infinite;transform:rotate(var(--a)) translate3d(0,0,0)}
+@keyframes d{from{transform:rotate(var(--a)) translate3d(0,0,0)}to{transform:rotate(var(--a)) translate3d(-60px,-60px,0)}}
+.nr i{will-change:auto}
+.pause i{animation-play-state:paused}
+.t{padding:8px 12px;font-size:13px}
+.t b{display:block;color:var(--acc);font-weight:600}
+code{font-family:ui-monospace,monospace}
+</style>
+</head>
+<body>
+<main>
+<h1>Медленный дрейф слоя: сдвиг против сдвига с поворотом</h1>
+<p>Каждая плитка движется по диагонали со скоростью ≈ 11 px/с (60 px по каждой оси за 7,5 с). Отличается только угол <code>rotate()</code>. Откройте страницу в Firefox и в Chrome/Edge, посмотрите на мелкие буквы: где они «щёлкают» по пикселю и дрожат, а где идут плавно.</p>
+<p>Попробуйте также Ctrl + «+» (масштаб страницы) и пинч-зум на тачпаде: масштаб меняет сетку физических пикселей, поэтому картинка у разных вариантов может вести себя по-разному.</p>
+<div class="bar">
+<label><input type="checkbox" id="p"> пауза</label>
+<label><input type="checkbox" id="w" checked> <code>will-change: transform</code></label>
+<span id="info" style="color:var(--mut)"></span>
+</div>
+<section class="grid" id="g"></section>
+</main>
+<script>
+var A=[0,0.002,0.01,0.05,0.1,0.3,1],g=document.getElementById('g');
+A.forEach(function(a){
+  var c=document.createElement('div');c.className='c';
+  var v=document.createElement('div');v.className='v';
+  var i=document.createElement('i');i.style.setProperty('--a',a+'deg');
+  v.appendChild(i);
+  var t=document.createElement('div');t.className='t';
+  t.innerHTML='<b>rotate('+a+'deg)</b>'+(a===0?'чистый сдвиг':a===0.3?'вариант из keytype':'');
+  c.appendChild(v);c.appendChild(t);g.appendChild(c);
+});
+document.getElementById('p').onchange=function(e){g.classList.toggle('pause',e.target.checked)};
+document.getElementById('w').onchange=function(e){g.classList.toggle('nr',!e.target.checked)};
+document.getElementById('info').textContent='dpr '+devicePixelRatio+' · '+navigator.userAgent.replace(/.*(Firefox|Edg|Chrome)\/([\d.]+).*/,'$1 $2');
+</script>
+</body>
+</html>
