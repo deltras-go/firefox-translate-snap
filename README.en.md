@@ -4,7 +4,7 @@
 
 ![Diagram: pixel snapping vs sub-pixel motion](media/explain-en.png)
 
-> Demos: [`keytype.html`](./keytype.html) — the real project background full-screen with angle buttons; [`demo.html`](./demo.html) — a ladder of 7 angles with small text. Both are dependency-free (`keytype.html` needs the `img/` folder next to it).
+> Demos: [`keytype.html`](./keytype.html) — the real project background full-screen with angle buttons; [`demo.html`](./demo.html) — a ladder of 7 angles with small text. Each page is a single self-contained file.
 > Facts about Mozilla bugs were checked on 2026-10-21 against Bugzilla pages and commits; anything we are not sure about is marked "hypothesis".
 
 ## TL;DR
