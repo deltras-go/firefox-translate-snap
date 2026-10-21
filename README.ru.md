@@ -4,8 +4,8 @@
 
 ![Схема: привязка к пикселям против субпиксельного движения](media/explain-ru.png)
 
-> **Открыть демо в браузере:** [anim-test](https://deltras-go.github.io/firefox-translate-snap/anim-test.html) · [keytype](https://deltras-go.github.io/firefox-translate-snap/keytype.html) · [demo](https://deltras-go.github.io/firefox-translate-snap/demo.html)
-> Демо: [`anim-test.html`](./anim-test.html) — **основное**, 8 квадратов с одним и тем же фоном и разными способами движения (именно здесь дрожь заметнее всего); [`keytype.html`](./keytype.html) — тот же фон на весь экран с кнопками угла; [`demo.html`](./demo.html) — лесенка из 7 углов с мелким текстом. Каждая страница — один самодостаточный файл.
+> **Открыть демо в браузере:** [anim-test](https://deltras-go.github.io/firefox-translate-snap/anim-test.html) · [demo](https://deltras-go.github.io/firefox-translate-snap/demo.html)
+> Демо: [`anim-test.html`](./anim-test.html) — **основное**, 8 квадратов с одним и тем же фоном и разными способами движения (именно здесь дрожь заметнее всего); [`demo.html`](./demo.html) — лесенка из 7 углов с мелким текстом. Каждая страница — один самодостаточный файл.
 > Факты о багах Mozilla проверены 21.10.2026 по страницам Bugzilla и коммитам; места, где мы не уверены, помечены словом «гипотеза».
 
 ## Коротко
@@ -116,6 +116,6 @@
 
 ## Как проверить самому
 
-Самый наглядный пример — [`anim-test.html`](./anim-test.html): квадраты 450×260 с настоящим фоном проекта и разными способами движения (сдвиг, масштаб ×1.002, поворот 0.01° / 0.05° / 0.3°, без `will-change`, `background-position`, canvas). Откройте в Firefox при масштабе 100% и смотрите на каждый квадрат 10–15 секунд. Тот же фон на весь экран с кнопками угла — [`keytype.html`](./keytype.html), лесенка из 7 углов — [`demo.html`](./demo.html).
+Самый наглядный пример — [`anim-test.html`](./anim-test.html): квадраты 450×260 с настоящим фоном проекта и разными способами движения (сдвиг, масштаб ×1.002, поворот 0.01° / 0.05° / 0.3°, без `will-change`, `background-position`, canvas). Откройте в Firefox при масштабе 100% и смотрите на каждый квадрат 10–15 секунд. Лесенка из 7 углов — [`demo.html`](./demo.html).
 
 Если у вас воспроизводится, стоит дописать в [Bug 1461434](https://bugzilla.mozilla.org/show_bug.cgi?id=1461434) минимальный пример и версию Firefox: он открыт с 2018 года.
