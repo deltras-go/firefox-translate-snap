@@ -102,7 +102,7 @@ Item preview cards used to draw an animated SVG (SMIL, main thread). After movin
 
 - Browser: **Firefox 158.0 (64-bit)**, Windows.
 - Laptop: Intel Core i5-12450H (4P+4E cores), NVIDIA GeForce RTX 3050 Laptop 4 GB, 16 GB DDR4, 15.6" IPS 1920×1080 **at 144 Hz**.
-- Firefox page zoom: 100%. The demo page reports `devicePixelRatio` **1.25** (so the OS display scaling is presumably 125%; not verified). The jitter appears at **any** page zoom level, so the exact ratio is not critical. A fractional ratio means 1 CSS pixel is not a whole number of device pixels, which is the situation where snapping to whole pixels has the most visible effect (hypothesis).
+- Page zoom 100%; the jitter appears at any zoom level.
 - **Refresh rate 144 Hz (hypothesis, untested on 60 Hz):** between two clicks the picture does not change for ~0.1 s, while smooth motion changes on every one of 144 frames, so the contrast between "stands, then jumps" and "glides" may be more noticeable on a high-refresh display than on 60 Hz.
 - Not recorded: which GPU Firefox renders on (about:support → Graphics) and the Windows version.
 - Whether the 2025–2026 snapping commits listed above are already in Firefox 158 was not verified.
